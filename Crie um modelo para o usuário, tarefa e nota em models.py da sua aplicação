@@ -1,0 +1,19 @@
+# study_app/models.py
+from django.contrib.auth.models import User
+from django.db import models
+
+class Task(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    title = models.CharField(max_length=100)
+    description = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+
+class Note(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    text = models.TextField()
+
+class Student(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    tasks = models.ManyToManyField(Task)
+    notes = models.ManyToManyField(Note)
+    overall_grade = models.FloatField(default=0.0)

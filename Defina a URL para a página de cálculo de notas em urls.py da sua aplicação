@@ -1,0 +1,8 @@
+# study_app/urls.py
+from django.urls import path
+from . import views
+
+urlpatterns = [
+    # Outras URLs...
+    path('calculate_grade/', views.calculate_grade, name='calculate_grade'),
+]

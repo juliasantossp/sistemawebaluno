@@ -1,0 +1,9 @@
+# study_app/urls.py
+from django.urls import path
+from . import views
+
+urlpatterns = [
+    path('add_task/', views.add_task, name='add_task'),
+    path('add_note/', views.add_note, name='add_note'),
+    # Adicione outras URLs aqui conforme necessário
+]
